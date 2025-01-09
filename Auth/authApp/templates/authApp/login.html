@@ -16,16 +16,21 @@
                     <div style="text-align: center;">
                         <h1><b>RAS</b></h1>
                     </div>
-                    <form id="loginForm">
+
+                    {% if error %}
+                        <p>{{ error }}</p>
+                        {% endif %}
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
                         <label>Username</label><br>
-                        <input type="text" id="username" placeholder="Username" required style="width: 90%; font-size: 15px; margin-top: 10px; padding: 5px;"><br><br>
+                        <input type="text" name="username" placeholder="Username" required style="width: 90%; font-size: 15px; margin-top: 10px; padding: 5px;"><br><br>
                         <label>Password</label><br>
-                        <input type="password" id="password" placeholder="Password" required style="width: 90%; font-size: 15px; margin-top: 10px; padding: 5px;"><br><br>
+                        <input type="password" name="password" placeholder="Password" required style="width: 90%; font-size: 15px; margin-top: 10px; padding: 5px;"><br><br>
                        <div style="text-align: center;">
-                        <button type="submit" class="btn btn-success">Login</button>
+                        <input type="submit" class="btn btn-success" value="Login">
                        </div>
                     </form>
-                    <p>Dont have an Account?<a href="register.html">Signup</a> </p>
+                    <p>Dont have an Account?<a href="../register/">Signup</a> </p>
                 </div>
             </div>         
         </div>
